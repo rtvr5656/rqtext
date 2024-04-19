@@ -1,0 +1,259 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck282ik02aeoe"]
+
+[ext_resource type="Theme" uid="uid://d0se74kojb33g" path="res://Files/themes/dark_theme.tres" id="1_gu84t"]
+[ext_resource type="Script" path="res://Scripts/editor.gd" id="1_nygjs"]
+
+[node name="editor" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nygjs")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="TextEditor" type="CanvasLayer" parent="."]
+process_mode = 1
+layer = 10
+
+[node name="Background" type="ColorRect" parent="TextEditor"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="TopBar" type="ColorRect" parent="TextEditor/Background"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="FileMenu" type="MenuButton" parent="TextEditor/Background/TopBar"]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 40.0
+theme = ExtResource("1_gu84t")
+theme_override_font_sizes/font_size = 25
+text = "File"
+switch_on_hover = true
+item_count = 5
+popup/item_0/text = "New"
+popup/item_0/id = 0
+popup/item_1/text = "File Options"
+popup/item_1/id = 1
+popup/item_1/separator = true
+popup/item_2/text = "Open"
+popup/item_2/id = 2
+popup/item_3/text = "Save"
+popup/item_3/id = 3
+popup/item_4/text = "Save as"
+popup/item_4/id = 4
+
+[node name="SettingsMenu" type="MenuButton" parent="TextEditor/Background/TopBar"]
+layout_mode = 0
+offset_left = 78.0
+offset_right = 219.0
+offset_bottom = 40.0
+theme = ExtResource("1_gu84t")
+theme_override_font_sizes/font_size = 25
+text = "Settings"
+switch_on_hover = true
+item_count = 1
+popup/item_0/text = "Change Key"
+popup/item_0/id = 0
+
+[node name="AboutMenu" type="MenuButton" parent="TextEditor/Background/TopBar"]
+layout_mode = 0
+offset_left = 219.0
+offset_right = 316.0
+offset_bottom = 40.0
+theme = ExtResource("1_gu84t")
+theme_override_font_sizes/font_size = 25
+text = "About"
+switch_on_hover = true
+item_count = 3
+popup/item_0/text = "Created: 19/04/2024"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Updated: 19/04/2024"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Made by: @rtvr5656"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+
+[node name="TextEditor" type="TextEdit" parent="TextEditor/Background"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1152.0
+offset_bottom = 617.0
+
+[node name="Welcome" type="CanvasLayer" parent="."]
+layer = 30
+visible = false
+
+[node name="Background" type="ColorRect" parent="Welcome"]
+process_mode = 3
+offset_left = 200.0
+offset_top = 91.0
+offset_right = 961.0
+offset_bottom = 547.0
+color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[node name="StartButton" type="Button" parent="Welcome/Background"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 323.0
+offset_right = 487.0
+offset_bottom = 368.0
+theme = ExtResource("1_gu84t")
+theme_override_font_sizes/font_size = 20
+text = "Start using RQ Text"
+
+[node name="Title" type="Label" parent="Welcome/Background"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 761.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 25
+text = "Welcome to RQ Text"
+horizontal_alignment = 1
+
+[node name="WelcomeText" type="Label" parent="Welcome/Background"]
+layout_mode = 0
+offset_top = 101.0
+offset_right = 761.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 20
+text = "It seems it's your first time here!
+This is RQ Text, a basic text editor software
+
+But what you can do here?
+- Create and edit any text file (document files aren't supported)
+- Encrypt your files with your own password"
+horizontal_alignment = 1
+text_overrun_behavior = 2
+
+[node name="Warning" type="Label" parent="Welcome/Background"]
+layout_mode = 0
+offset_top = 413.0
+offset_right = 761.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 20
+text = "[This software is still in development]"
+horizontal_alignment = 1
+text_overrun_behavior = 2
+
+[node name="ChangeKey" type="CanvasLayer" parent="."]
+layer = 20
+visible = false
+
+[node name="Background" type="ColorRect" parent="ChangeKey"]
+process_mode = 3
+offset_right = 1152.0
+offset_bottom = 609.0
+color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[node name="Title" type="Label" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 1152.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 25
+text = "Encryption Key Settings"
+horizontal_alignment = 1
+
+[node name="KeyText" type="Label" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 125.0
+offset_right = 279.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 25
+text = "Key"
+horizontal_alignment = 2
+
+[node name="KeyLine" type="LineEdit" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 127.0
+offset_right = 945.0
+offset_bottom = 158.0
+placeholder_text = "Type your key here"
+
+[node name="EncryptionText" type="Label" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 167.0
+offset_right = 279.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 25
+text = "Active encryption"
+horizontal_alignment = 2
+
+[node name="EncryptionBox" type="CheckBox" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 173.0
+offset_right = 325.0
+offset_bottom = 197.0
+
+[node name="CloseKeySettings" type="Button" parent="ChangeKey/Background"]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 545.0
+offset_right = 686.0
+offset_bottom = 590.0
+theme = ExtResource("1_gu84t")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
+[node name="OpenFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+ok_button_text = "Abrir"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="SaveAsDialog" type="FileDialog" parent="."]
+initial_position = 1
+size = Vector2i(326, 154)
+ok_button_text = "Save"
+access = 2
+use_native_dialog = true
+
+[node name="SaveAlert" type="ConfirmationDialog" parent="."]
+title = "Warning"
+ok_button_text = "Yes"
+dialog_text = "You forgot to save the file?
+Want to save it now and leave?"
+cancel_button_text = "No"
+
+[node name="ExtraDecoration" type="CanvasLayer" parent="."]
+layer = 40
+
+[node name="Credits" type="Label" parent="ExtraDecoration"]
+offset_left = 751.0
+offset_top = 617.0
+offset_right = 1149.0
+offset_bottom = 645.0
+theme_override_font_sizes/font_size = 20
+text = "[Still in development] Made by @rtvr5656"
+
+[connection signal="text_changed" from="TextEditor/Background/TextEditor" to="." method="_on_text_editor_text_changed"]
+[connection signal="pressed" from="Welcome/Background/StartButton" to="." method="_on_close_welcome_message_pressed"]
+[connection signal="text_changed" from="ChangeKey/Background/KeyLine" to="." method="_on_key_line_text_changed"]
+[connection signal="pressed" from="ChangeKey/Background/EncryptionBox" to="." method="_on_encryption_box_pressed"]
+[connection signal="pressed" from="ChangeKey/Background/CloseKeySettings" to="." method="_on_close_key_settings_pressed"]
+[connection signal="file_selected" from="OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
+[connection signal="file_selected" from="SaveAsDialog" to="." method="_on_save_as_dialog_file_selected"]
+[connection signal="canceled" from="SaveAlert" to="." method="_on_save_alert_canceled"]
+[connection signal="confirmed" from="SaveAlert" to="." method="_on_save_alert_confirmed"]
